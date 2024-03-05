@@ -1,0 +1,79 @@
+<div class="row mb-3">
+  <div class="col-4">
+    <button class="btn btn-primary" (click)="generateKeys()">
+      Generate keys
+    </button>
+  </div>
+</div>
+
+@if (publickeyEncoded) {
+
+<div class="row">
+  <div class="col-12">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <button
+          class="btn btn-outline-primary"
+          type="button"
+          (click)="encrypt()"
+          [disabled]="!textToEncrypt"
+        >
+          Encrypt text
+        </button>
+      </div>
+      <input
+        [(ngModel)]="textToEncrypt"
+        type="text"
+        class="form-control"
+        placeholder="Text to encrypt"
+        aria-label="Text to encrypt"
+        aria-describedby="text-to-encrypt"
+      />
+    </div>
+  </div>
+</div>
+} @if (encryptedText) {
+<div class="row">
+  <div class="col-12">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <button
+          class="btn btn-outline-primary"
+          type="button"
+          (click)="decript()"
+        >
+          Decript text
+        </button>
+      </div>
+      <input
+        [(ngModel)]="encryptedText"
+        [disabled]="true"
+        type="text"
+        class="form-control"
+        placeholder="Text encrypted"
+        aria-label="Text  encrypted"
+        aria-describedby="text-encrypted"
+      />
+    </div>
+  </div>
+</div>
+} @if (decriptedText) {
+<div class="row">
+  <div class="col-12">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1"> Decript text </span>
+      </div>
+      <input
+        [(ngModel)]="decriptedText"
+        [disabled]="true"
+        type="text"
+        class="form-control"
+        placeholder="Decripted text"
+        aria-label="Decripted text"
+        aria-describedby="text-decripted"
+      />
+    </div>
+  </div>
+</div>
+}
